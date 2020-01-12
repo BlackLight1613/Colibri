@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Colibri.Models;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
@@ -18,6 +19,7 @@ namespace Colibri.DAO
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
 
-        public System.Data.Entity.DbSet<Colibri.Models.Supplier> Suppliers { get; set; }
+        public DbSet<Colibri.Models.Supplier> Suppliers { get; set; }
+        public DbSet<Command> Commands { get; set; }
     }
 }

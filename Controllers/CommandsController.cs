@@ -11,107 +11,107 @@ using Colibri.Models;
 
 namespace Colibri.Controllers
 {
-    public class SuppliersController : Controller
+    public class CommandsController : Controller
     {
         private ColibriContext db = new ColibriContext();
 
-        // GET: Suppliers
+        // GET: Commands
         public ActionResult Index()
         {
-            return View(db.Suppliers.ToList());
+            return View(db.Commands.ToList());
         }
 
-        // GET: Suppliers/Details/5
+        // GET: Commands/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Supplier supplier = db.Suppliers.Find(id);
-            if (supplier == null)
+            Command command = db.Commands.Find(id);
+            if (command == null)
             {
                 return HttpNotFound();
             }
-            return View(supplier);
+            return View(command);
         }
 
-        // GET: Suppliers/Create
+        // GET: Commands/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Suppliers/Create
+        // POST: Commands/Create
         // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Contact")] Supplier supplier)
+        public ActionResult Create([Bind(Include = "Id,Date,Comment")] Command command)
         {
             if (ModelState.IsValid)
             {
-                db.Suppliers.Add(supplier);
+                db.Commands.Add(command);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(supplier);
+            return View(command);
         }
 
-        // GET: Suppliers/Edit/5
+        // GET: Commands/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Supplier supplier = db.Suppliers.Find(id);
-            if (supplier == null)
+            Command command = db.Commands.Find(id);
+            if (command == null)
             {
                 return HttpNotFound();
             }
-            return View(supplier);
+            return View(command);
         }
 
-        // POST: Suppliers/Edit/5
+        // POST: Commands/Edit/5
         // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,Contact")] Supplier supplier)
+        public ActionResult Edit([Bind(Include = "Id,Date,Comment")] Command command)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(supplier).State = EntityState.Modified;
+                db.Entry(command).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(supplier);
+            return View(command);
         }
 
-        // GET: Suppliers/Delete/5
+        // GET: Commands/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Supplier supplier = db.Suppliers.Find(id);
-            if (supplier == null)
+            Command command = db.Commands.Find(id);
+            if (command == null)
             {
                 return HttpNotFound();
             }
-            return View(supplier);
+            return View(command);
         }
 
-        // POST: Suppliers/Delete/5
+        // POST: Commands/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Supplier supplier = db.Suppliers.Find(id);
-            db.Suppliers.Remove(supplier);
+            Command command = db.Commands.Find(id);
+            db.Commands.Remove(command);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
