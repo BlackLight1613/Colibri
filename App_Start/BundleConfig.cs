@@ -27,6 +27,7 @@ namespace Colibri
                        "~/Content/site.css"));*/
 
             bundles.Add(new StyleBundle("~/Content/MainCSS").Include("~/Content/CSS/main.css"));
+            bundles.Add(new StyleBundle("~/Content/BodyCSS").Include("~/Content/CSS/body.css"));
         }
     }
 }

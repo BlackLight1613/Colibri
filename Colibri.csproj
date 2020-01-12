@@ -184,6 +184,12 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\CSS\body.css">
+      <DependentUpon>body.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\CSS\body.min.css">
+      <DependentUpon>body.css</DependentUpon>
+    </Content>
     <Content Include="Content\CSS\main.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -204,6 +210,11 @@
     <Folder Include="Scripts\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\CSS\body.scss" />
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Commands\Index.cshtml" />
