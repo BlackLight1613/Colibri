@@ -2,12 +2,14 @@
 
 
 .table {
+    margin-bottom :10px;
     border-collapse: collapse;
     width :80%;
 
     th {
         background-color: $table-header-color;
         color: white;
+        padding : 5px;
     }
 
     tr, td {
@@ -30,5 +32,27 @@
     
     &:hover{
         background-color : $table-header-color;
+    }
+}
+
+input[type="text"] {
+    border: 1px solid #34495e;
+    outline: none;
+    border-radius: 5px;
+    padding-left : 3px;
+}
+
+.Search_Button {
+    background-color: #34495e;
+    border: 1px solid $table-header-color;
+    border-radius: 5px;
+    margin: 10px 0 10px 0;
+    padding : 2px 10px 2px 10px;
+    color: white;
+    transition: 0.2s;
+    font-family: "montserrat";
+    &:hover {
+        background-color: $table-header-color;
+        cursor : pointer;
     }
 }

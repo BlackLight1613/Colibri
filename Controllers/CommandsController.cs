@@ -16,10 +16,16 @@ namespace Colibri.Controllers
         private ColibriContext db = new ColibriContext();
 
         // GET: Commands
-        public ActionResult Index()
+        public ActionResult Index(string searchSupplier)
         {
-            var commands = db.Commands.ToList();
-            return View(db.Commands.ToList());
+            var commands = db.Commands.OrderByDescending(q=>q.Date);
+            if (!string.IsNullOrEmpty(searchSupplier))
+            {
+                var filterCommands = commands.Where(q => q.Supplier.Name.Contains(searchSupplier));
+                return View(filterCommands.ToList());
+            }
+            else
+                return View(commands.ToList());
         }
 
         // GET: Commands/Details/5
