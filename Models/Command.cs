@@ -10,7 +10,6 @@ namespace Colibri.Models
         public int Id { get; set; }
         public DateTime Date { get; set; }
         public string Comment { get; set; }
-        
-        public Supplier Supplier { get; set; }
+        public virtual Supplier Supplier { get; set; }
     }
 }

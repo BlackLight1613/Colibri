@@ -1,7 +1,12 @@
-﻿body {
+﻿html {
+    height: 100%;
+}
+
+body {
     margin: 0;
     padding: 0;
     font-family : "montserrat",Arial;
+    height:100%;
 }
 
 
@@ -40,9 +45,10 @@
     background-color: #95a5a6;
 }
 
-.container{
-    padding : 5px;
-    // height : 800px;
+.container {
+    padding: 10px 20px 10px 20px;
+    min-height: 85%;
+    background-color: #ecf0f1;
 }
 
 .footer {
@@ -55,8 +61,4 @@
 .footer p{
     margin : 0;
     padding : 5px 10px 5px 10px;
-}
-
-.table{
-
 }

@@ -18,6 +18,7 @@ namespace Colibri.Controllers
         // GET: Commands
         public ActionResult Index()
         {
+            var commands = db.Commands.ToList();
             return View(db.Commands.ToList());
         }
 

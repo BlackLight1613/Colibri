@@ -1,3 +1,23 @@
-﻿.table th {
-  background-color: #95a5a6;
-  color: white; }
+﻿.table {
+  border-collapse: collapse;
+  width: 80%; }
+  .table th {
+    background-color: #95a5a6;
+    color: white; }
+  .table tr, .table td {
+    padding: 5px;
+    border-collapse: collapse;
+    border: 1px solid #95a5a6; }
+
+.Add_Button {
+  display: inline-block;
+  background-color: #34495e;
+  text-decoration: none;
+  color: white;
+  border: 1px solid #95a5a6;
+  padding: 5px;
+  border-radius: 5px;
+  margin: 10px 0 10px 0;
+  transition: 0.2s; }
+  .Add_Button:hover {
+    background-color: #95a5a6; }
