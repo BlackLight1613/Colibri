@@ -1,0 +1,53 @@
+﻿@model Colibri.Models.Command
+
+
+@{
+    ViewBag.Title = "Create";
+    var suppliers = (List<Colibri.Models.Supplier>)ViewData["Suppliers"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+@Scripts.Render("~/Content/CommandCreateScript")
+
+<h2>Enregistrer une commande</h2>
+<hr />
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div>
+        <h4>Informations sur la commande</h4>
+        <div class="horizontal-form">
+
+            <label for="CommandDateInput">Date de la commande : </label>
+            <input type="date" name="CommandDate" id="CommandDateInput" />
+            <span class="error" id="dateError">Vous devez spécifier une date de commande.</span>
+        </div>
+        <div class="horizontal-form">
+            <label for="CommandComment">Commentaire sur la commande :</label>
+            <div>
+                @Html.EditorFor(model => model.Comment, new { htmlAttributes = new { @class = "commentTextArea", @rows = "5", @cols = "50", @maxlength = "300",@id="CommentInput" } })
+            </div>
+        </div>
+        <div class="horizontal-form">
+            <label for="SupplierList">Fournisseur :</label>
+            <select name="CommandSupplierId" id="SupplierList">
+                @foreach (var item in suppliers)
+                {
+                    <option value="@item.Id">@item.Name</option>
+                }
+
+            </select>
+        </div>
+
+        <div>
+            <div>
+                <input type="submit" value="Enregistrer la commande" class="Add_Button" id="SubmitCommandButton"/>
+                @Html.ActionLink("Annuler", "Index", null, new { @class = "Cancel_Button" })
+            </div>
+        </div>
+    </div>
+}
+

@@ -1,5 +1,8 @@
 ﻿$table-header-color: #95a5a6;
 
+*{
+    font-family : "montserrat";
+}
 
 .table {
     margin-bottom :10px;
@@ -39,7 +42,7 @@ input[type="text"] {
     border: 1px solid #34495e;
     outline: none;
     border-radius: 5px;
-    padding-left : 3px;
+    padding-left: 3px;
 }
 
 .Search_Button {
@@ -50,9 +53,54 @@ input[type="text"] {
     padding : 2px 10px 2px 10px;
     color: white;
     transition: 0.2s;
-    font-family: "montserrat";
+
     &:hover {
         background-color: $table-header-color;
         cursor : pointer;
     }
+}
+
+a.Detail_Button {
+    background-image: url("../IMG/detail_list_icon.png");
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    margin : 0px 3px 0px 3px;
+}
+
+a.Delete_Button {
+    background-image: url("../IMG/delete_list_icon.png");
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    margin: 0px 3px 0px 3px;
+}
+
+.horizontal-form {
+    padding-bottom: 10px;
+
+    textarea {
+        resize: none;
+        outline: 1px solid #2980b9;
+    }
+}
+
+.Cancel_Button {
+    font-size: 14px;
+    background-color: #e74c3c;
+    text-decoration: none;
+    color: white;
+    border: 1px solid #c0392b;
+    padding: 4px 5px 5px 5px;
+    border-radius: 5px;
+    margin: 10px 0 10px 0;
+    transition: 0.2s;
+
+    &:hover {
+        background-color: #c0392b;
+    }
+}
+
+.error {
+    color: #e74c3c;
 }

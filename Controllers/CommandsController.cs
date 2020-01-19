@@ -15,6 +15,8 @@ namespace Colibri.Controllers
     {
         private ColibriContext db = new ColibriContext();
 
+        
+
         // GET: Commands
         public ActionResult Index(string searchSupplier)
         {
@@ -46,6 +48,8 @@ namespace Colibri.Controllers
         // GET: Commands/Create
         public ActionResult Create()
         {
+            List<Supplier> Suppliers = db.Suppliers.ToList();
+            ViewData["Suppliers"] = Suppliers;
             return View();
         }
 
@@ -54,15 +58,24 @@ namespace Colibri.Controllers
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Date,Comment")] Command command)
+        public ActionResult Create([Bind(Include = "Id,Date,Comment")] Command PartialCommand, int CommandSupplierId, DateTime CommandDate)
         {
+
+            Supplier selectedSupplier = db.Suppliers.Find(CommandSupplierId);
+
+            Command command = new Command { 
+                Date = CommandDate.Date,
+                Comment = PartialCommand.Comment,
+                Supplier = selectedSupplier
+            };
+            
             if (ModelState.IsValid)
             {
                 db.Commands.Add(command);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            
             return View(command);
         }
 

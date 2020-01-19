@@ -191,6 +191,10 @@
       <DependentUpon>body.css</DependentUpon>
     </Content>
     <Content Include="Content\CSS\main.css" />
+    <Content Include="Content\IMG\delete_list_icon.png" />
+    <Content Include="Content\IMG\detail_list_icon.png" />
+    <Content Include="Content\JS\commandCreate.js" />
+    <Content Include="Content\JS\commands.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
@@ -218,6 +222,8 @@
     <None Include="packages.config" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Commands\Index.cshtml" />
+    <Content Include="Views\Commands\Delete.cshtml" />
+    <Content Include="Views\Commands\Create.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

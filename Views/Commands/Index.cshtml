@@ -4,11 +4,11 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+@Scripts.Render("~/Content/CommandScript")
 <h2>Vos commandes</h2>
 
 
-@Html.ActionLink("Enregistrer une commande", "Create", "CommandsController", null, new { @class = "Add_Button" })
+@Html.ActionLink("Enregistrer une commande", "Create", "Commands", null, new { @class = "Add_Button" })
 
 <div>
     Nombre de commandes : @Model.Count()
@@ -32,7 +32,7 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Date)
+                @item.Date.Day/@item.Date.Month/@item.Date.Year
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Comment)
@@ -41,8 +41,8 @@
                 @Html.DisplayFor(modelItem => item.Supplier.Name)
             </td>
             <td>
-                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                @Html.ActionLink("Details", "Details", new { id = item.Id },new { @class="Detail_Button"}) 
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id },new { @class="Delete_Button"}) 
             </td>
         </tr>
     }
@@ -56,7 +56,7 @@
 @using (Html.BeginForm())
 {
     <p>
-        Rechercher par fournisseur: @Html.TextBox("searchSupplier")
+        Rechercher par fournisseur: @Html.TextBox("searchSupplier",null,new { @maxlength = 15})
         <input type="submit" value="Rechercher"  class="Search_Button"/>
     </p>
 }
