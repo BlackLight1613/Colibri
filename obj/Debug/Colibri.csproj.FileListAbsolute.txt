@@ -120,7 +120,7 @@ C:\Users\eldin\source\repos\Colibri\Colibri\bin\fr\Microsoft.Owin.Security.Faceb
 C:\Users\eldin\source\repos\Colibri\Colibri\bin\fr\Microsoft.Owin.Security.Google.resources.dll
 C:\Users\eldin\source\repos\Colibri\Colibri\bin\fr\Microsoft.Owin.Security.Twitter.resources.dll
 C:\Users\eldin\source\repos\Colibri\Colibri\bin\fr\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
-C:\Users\eldin\source\repos\Colibri\Colibri\obj\Debug\Colibri.csprojAssemblyReference.cache
 C:\Users\eldin\source\repos\Colibri\Colibri\obj\Debug\Colibri.csproj.CopyComplete
 C:\Users\eldin\source\repos\Colibri\Colibri\obj\Debug\Colibri.dll
 C:\Users\eldin\source\repos\Colibri\Colibri\obj\Debug\Colibri.pdb
+C:\Users\eldin\source\repos\Colibri\Colibri\obj\Debug\Colibri.csprojAssemblyReference.cache

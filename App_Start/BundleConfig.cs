@@ -30,6 +30,7 @@ namespace Colibri
             bundles.Add(new StyleBundle("~/Content/BodyCSS").Include("~/Content/CSS/body.css"));
             bundles.Add(new ScriptBundle("~/Content/CommandScript").Include("~/Content/JS/commands.js"));
             bundles.Add(new ScriptBundle("~/Content/CommandCreateScript").Include("~/Content/JS/commandCreate.js"));
+            bundles.Add(new ScriptBundle("~/Content/CommandArticlesCreateScript").Include("~/Content/JS/commandArticlesCreate.js"));
         }
     }
 }

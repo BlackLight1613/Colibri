@@ -73,10 +73,10 @@ namespace Colibri.Controllers
             {
                 db.Commands.Add(command);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Create", "CommandArticles", command);
             }
             
-            return View(command);
+            return RedirectToAction("CommandArticles","Create",command);
         }
 
         // GET: Commands/Edit/5

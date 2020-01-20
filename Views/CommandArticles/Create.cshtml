@@ -1,0 +1,45 @@
+﻿@model Colibri.Models.CommandArticle
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var unities = (List<Colibri.Models.Unity>)ViewData["Unities"];
+    var command = (Colibri.Models.Command)ViewData["Command"];
+}
+@Scripts.Render("~/Content/CommandArticlesCreateScript");
+
+<h3>Rajouter des articles à la commande du @command.Date</h3>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div>
+   <button class="Add_Button" id="CreateArticleFormButton">Rajouter un article</button>
+    <div id="articles_list">
+
+    </div>
+    <div id="article_form">
+        <div>
+            <label>Nom de l'article : </label>
+            <input type="text" />
+        </div>
+        <div>
+            <label>Quantité : </label>
+            <input type="number" />
+        </div>
+        <div>
+            <label>Unité :</label>
+            <select>
+                @foreach(var unity in unities)
+                {
+                    <option value="@unity.Id">@unity.Name (@unity.Code)</option>
+                }
+            </select>
+        </div> 
+        <div><button id="AddArticleButton">Ajouter cet article</button></div>
+    </div>
+</div>
+}
+

@@ -19,7 +19,11 @@ namespace Colibri.DAO
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
 
-        public DbSet<Colibri.Models.Supplier> Suppliers { get; set; }
+        public DbSet<Supplier> Suppliers { get; set; }
         public DbSet<Command> Commands { get; set; }
+        public DbSet<Unity> Unities { get; set; }
+        public DbSet<Article> Articles { get; set; }
+
+        public System.Data.Entity.DbSet<Colibri.Models.CommandArticle> CommandArticles { get; set; }
     }
 }
