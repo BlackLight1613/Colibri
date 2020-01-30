@@ -16,30 +16,44 @@
     @Html.AntiForgeryToken()
     
 <div>
-    <button type="button" class="Add_Button" id="CreateArticleFormButton">Rajouter un article</button>
-    <div id="articles_list">
-
+    <div id="noArticle">
+        <span>Aucun article sur la commande.</span>
     </div>
+    <div id="articlesList">
+        <table>
+            <thead>
+                <tr>
+                    <th>Article</th>
+                    <th>Quantité</th>
+                    <th>Unité</th>
+                    <th>Supprimer</th>
+                </tr>
+            </thead>
+            <tbody id="tableBodyArticle">
+            </tbody>
+        </table>
+    </div>
+    <br />
     <div id="article_form">
         <div>
             <label>Nom de l'article : </label>
-            <input type="text" />
-        </div>
-        <div>
+            <input type="text" id="articleNameInput"/>
             <label>Quantité : </label>
-            <input type="number" />
-        </div>
-        <div>
+            <input type="number" id="articleQuantityInput" min="0" value="0"/>
             <label>Unité :</label>
-            <select>
-                @foreach(var unity in unities)
+            <select id="articleUnitySelect">
+                @foreach (var unity in unities)
                 {
                     <option value="@unity.Id">@unity.Name (@unity.Code)</option>
                 }
             </select>
-        </div> 
-        <div><button id="AddArticleButton">Ajouter cet article</button><button id="CancelArticleFormButton">Annuler</button></div>
+        </div>
+
+        <div>
+            <button class="Add_Button" id="AddArticleButton" type="button">Ajouter cet article</button><button class="Cancel_Button" id="CancelArticleFormButton" type="button">Annuler</button>
+        </div>
     </div>
+    <button type="button" class="Add_Button" id="CreateArticleFormButton">Rajouter un article</button>
 </div>
 }
 
