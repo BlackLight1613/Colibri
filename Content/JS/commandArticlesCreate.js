@@ -45,20 +45,33 @@
     };
 
 
-    const addTableArticle = (articleName, articleQuantity, unityCode) => {
+    const addTableArticle = (articleName, articleQuantity, unityCode, articleUnityText) => {
         //console.log('Nom de l article => ' + articleName + ' / Quantité => ' + articleQuantity + ' / Code Unité => ' + unityCode);
         //Construction de la ligne HTML contennat les éléments 
+        //A retravailler avec les inputs cachés .....
         var row = document.createElement('tr');
         row.setAttribute('idRow', indexTableRow)
         var nameCell = document.createElement('td');
+        var nameCellInput = document.createElement('input');
+        nameCellInput.value = articleName;
+        nameCell.appendChild(nameCellInput);
         var quantityCell = document.createElement('td');
+        var quantityCellInput = document.createElement('input');
+        quantityCellInput.value = articleQuantity;
+        quantityCell.appendChild(quantityCellInput);
         var unityCell = document.createElement('td');
+        var unityCodeCell = document.createElement('td');
+        unityCodeCell.setAttribute('data-type', 'unityCode');
+        unityCodeCell.style.display = '';
+        var unityCodeInput = document.createElement('input');
+        unityCodeInput.value = unityCode;
+        unityCodeCell.appendChild(unityCodeInput);
         var actionCell = document.createElement('td');
         var deleteLink = document.createElement('a');
         actionCell.appendChild(deleteLink);
         deleteLink.setAttribute('href', '#');
-        deleteLink.innerText = 'Supprimer';
-        //deleteLink.setAttribute('class', 'Delete_Button');
+        deleteLink.innerText = '';
+        deleteLink.setAttribute('class', 'Delete_Button');
         deleteLink.setAttribute('idLink', indexTableRow);
         deleteLink.addEventListener('click', () => {
             const idLink = parseInt(deleteLink.getAttribute('idLink'));
@@ -72,11 +85,13 @@
         });
         nameCell.innerText = articleName;
         quantityCell.innerText = articleQuantity;
-        unityCell.innerText = unityCode;
+        unityCell.innerText = articleUnityText;
         row.appendChild(nameCell);
         row.appendChild(quantityCell);
         row.appendChild(unityCell);
         row.appendChild(actionCell);
+        row.appendChild(unityCodeCell);
+
         //Ajout de la ligne dans le tableau contenant les éléments du DOM
         tableRows.push(row);
         indexTableRow++;
@@ -134,9 +149,10 @@
             if (articleNameInputValue === '' || articleNameInputValue === undefined || articleQuantityInputValue <= 0 || articleUnityValue === '')
                 return false;
             else
-                addTableArticle(articleNameInputValue, articleQuantityInputValue, articleUnityValue);
+                addTableArticle(articleNameInputValue, articleQuantityInputValue, articleUnityValue, articleUnityText);
             articleNameInput.value = '';
             articleQuantityInput.value = '0';
+            articleNameInput.focus();
             
         });
     };
