@@ -8,7 +8,7 @@
 }
 @Scripts.Render("~/Content/CommandArticlesCreateScript");
 
-<h3>Rajouter des articles à la commande du @command.Date</h3>
+<h3>Rajouter des articles à la commande du @command.Date.ToString("dd/MM/yyyy")</h3>
 
 
 @using (Html.BeginForm()) 
@@ -20,13 +20,13 @@
         <span>Aucun article sur la commande.</span>
     </div>
     <div id="articlesList">
-        <table>
+        <table class="table">
             <thead>
                 <tr>
                     <th>Article</th>
-                    <th>Quantité</th>
-                    <th>Unité</th>
-                    <th>Supprimer</th>
+                    <th class="quantity_column">Quantité</th>
+                    <th class="unity_column">Unité</th>
+                    <th class="action_column">Supprimer</th>
                 </tr>
             </thead>
             <tbody id="tableBodyArticle">
@@ -37,9 +37,9 @@
     <div id="article_form">
         <div>
             <label>Nom de l'article : </label>
-            <input type="text" id="articleNameInput"/>
+            <input type="text" id="articleNameInput" />
             <label>Quantité : </label>
-            <input type="number" id="articleQuantityInput" min="0" value="0"/>
+            <input type="number" id="articleQuantityInput" min="0" value="0" />
             <label>Unité :</label>
             <select id="articleUnitySelect">
                 @foreach (var unity in unities)
@@ -54,6 +54,7 @@
         </div>
     </div>
     <button type="button" class="Add_Button" id="CreateArticleFormButton">Rajouter un article</button>
+    <input type="submit" value="Enregistrer les articles" class="Add_Button" formaction="@Url.Action("ArticleList","CommandArticles",new { CommandId = command.Id })"/>
 </div>
 }
 

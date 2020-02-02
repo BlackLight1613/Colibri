@@ -5,20 +5,32 @@
 }
 
 .table {
-    margin-bottom :10px;
+    margin-bottom: 10px;
     border-collapse: collapse;
-    width :80%;
+    width: 80%;
 
     th {
         background-color: $table-header-color;
         color: white;
-        padding : 5px;
+        padding: 5px;
     }
 
     tr, td {
-        padding : 5px;
+        padding: 5px;
         border-collapse: collapse;
         border: 1px solid $table-header-color;
+    }
+
+    .unity_column {
+        width: 20%;
+    }
+    
+    .quantity_column{
+        width : 10%;
+    }
+
+    .action_column{
+        width : 10%;
     }
 }
 
@@ -35,6 +47,7 @@
     
     &:hover{
         background-color : $table-header-color;
+        cursor : pointer;
     }
 }
 
@@ -74,6 +87,9 @@ a.Delete_Button {
     width: 40px;
     height: 40px;
     margin: 0px 3px 0px 3px;
+    :hover{
+        cursor : pointer;   
+    }
 }
 
 .horizontal-form {
@@ -98,6 +114,7 @@ a.Delete_Button {
 
     &:hover {
         background-color: #c0392b;
+        cursor : pointer;
     }
 }
 

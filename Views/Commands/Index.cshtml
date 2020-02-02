@@ -32,7 +32,8 @@
     {
         <tr>
             <td>
-                @item.Date.Day/@item.Date.Month/@item.Date.Year
+                @item.Date.ToString("dd/MM/yyyy")
+               
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Comment)
